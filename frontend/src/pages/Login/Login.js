@@ -7,7 +7,7 @@ const Login = () => {
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
   const REDIRECT_URI = encodeURIComponent('https://pixelateinc.com/dashboard');
 
-  const loginUrl = `https://${COGNITO_DOMAIN}/login?client_id=${CLIENT_ID}&response_type=code&scope=email+openid+profile&redirect_uri=${REDIRECT_URI}`;
+  const loginUrl = `https://${COGNITO_DOMAIN}/login/continue?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}$response_type=code&scope=email+openid+profile`;
 
   return (
     <div className="login-container">
