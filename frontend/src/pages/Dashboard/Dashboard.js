@@ -1,18 +1,39 @@
-import React from "react";
-import "./Dashboard.css";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Dashboard = () => {
-  return (
-    <div className="dashboard-container">
-      <video className="video-background" autoPlay loop muted>
-        <source src="/images/other-background.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+  const navigate = useNavigate();
 
-      <div className="dashboard-content">
-        <h2>Welcome to your Dashboard!</h2>
-        <p>Dashboard details here...</p>
-      </div>
+  useEffect(() => {
+    const handleAuthCallback = async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const authCode = urlParams.get('code');
+
+      if (authCode) {
+        try {
+          const response = await axios.post(
+            `${process.env.REACT_APP_API_ENDPOINT}/token`,
+            { code: authCode }
+          );
+
+          localStorage.setItem('access_token', response.data.access_token);
+          localStorage.setItem('id_token', response.data.id_token);
+          window.history.replaceState({}, document.title, "/dashboard");
+        } catch (error) {
+          console.error('Token exchange failed:', error);
+          navigate('/login');
+        }
+      }
+    };
+
+    handleAuthCallback();
+  }, [navigate]);
+
+  return (
+    <div>
+      <h1>Welcome to Pixelate Dashboard</h1>
+      {/* Add your dashboard content here */}
     </div>
   );
 };
