@@ -1,12 +1,35 @@
-.login-container {
-  position: relative;
-  height: 100vh;
-  /* Full window height */
-  overflow: hidden;
-  /* Hide any video overflow */
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Video background fills the entire container */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #141619;
+}
+
+/* Main container */
+.login-container {
+  position: relative;
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, #1C3884 0%, #0f172a 100%),
+    url('/public/images/background-blob-service-1.png') top right / 20% no-repeat,
+    url('/public/images/background-blob-service-1.png') top left / 60% no-repeat,
+    url('/public/images/background-blob-service-1.png') center center / cover no-repeat,
+    url('/public/images/background-blob-service-1.png') bottom left / 900px no-repeat;
+  color: #ffffff;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Video Background */
 .video-background {
   position: absolute;
   top: 0;
@@ -14,59 +37,51 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Keeps the aspect ratio while covering the screen */
   z-index: -1;
-  /* Places the video behind the content */
 }
 
-/* Login content is on top of the video */
+/* Login Content */
 .login-content {
   position: relative;
   z-index: 1;
-  color: #fff;
-  /* White text for visibility against video */
   max-width: 400px;
   margin: 0 auto;
   padding-top: 100px;
-  /* Spacing from the top */
   text-align: center;
 }
 
 .login-content h2 {
+  font-size: 2.5rem;
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 
-.login-content .error {
-  color: #ff6565;
-  margin-bottom: 1rem;
+/* Cognito Login Button */
+.cognito-login-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #665dcd, #5fa4e6, #d2ab67);
+  padding: 15px 30px;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: background 0.3s ease;
 }
 
-.login-content form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.cognito-login-button:hover {
+  background: linear-gradient(135deg, #5fa4e6, #4299e1, #d2ab67);
 }
 
-.login-content input {
-  padding: 0.8rem;
-  border-radius: 4px;
-  border: none;
-  outline: none;
+/* Footer */
+.footer-section {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #aaa;
 }
 
-.login-content button {
-  padding: 0.8rem;
-  border-radius: 4px;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-}
-
-.login-content button:hover {
-  background-color: #0056b3;
-}
-
-.login-content p {
-  margin-top: 1rem;
+.footer-section p {
+  font-size: 0.9rem;
 }
