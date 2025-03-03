@@ -1,116 +1,536 @@
-/* Full-screen background video */
+/* Home.css */
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* Main container with gradient background */
 .home-container {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  /* Prevents the video from spilling over */
+    position: relative;
+    min-height: 100vh;
+    /* The first background (image) is on top of the second (gradient).
+       If you want the image visible, you can adjust the gradient opacity. */
+    background:
+        url('/public/images/background-blob-service-1.png') top right / 20% no-repeat,
+        url('/public/images/background-blob-service-1.png') top left / 60% no-repeat,
+        url('/public/images/background-blob-service-1.png') center center / cover no-repeat,
+        url('/public/images/background-blob-service-1.png') bottom left / 900px no-repeat,
+        linear-gradient(135deg, #1C3884 0%, #0f172a 100%);
+    color: #ffffff;
 }
 
-/* Style the video to fill the screen */
-.video-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* Ensures the video fills the screen without distortion */
-  z-index: -1;
-  /* Sends the video behind the content */
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* slightly transparent black */
+    backdrop-filter: blur(5px);
+    position: sticky;
+    /* or fixed if you want it always on top */
+    top: 0;
+    z-index: 10;
+    padding: 1rem 2rem;
 }
 
-/* Hero Section Styling */
-.hero {
-  position: relative;
-  text-align: center;
-  color: white;
-  padding: 4rem 0;
-  z-index: 1;
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.hero .container {
-  max-width: 1200px;
-  margin: 0 auto;
+.nav-left {
+    display: flex;
+    align-items: center;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
+.nav-logo {
+    height: 20%px;
+    width: 240px;
+    object-fit: contain;
+    /* margin-right: 0.75rem; */
 }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+
+.nav-brand {
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 5px;
 }
 
-.cta-button {
-  background-color: #007bff;
-  color: white;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+.nav-right .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
 }
 
-.cta-button:hover {
-  background-color: #0056b3;
+.nav-right .nav-links li a {
+    text-decoration: none;
+    /* background: linear-gradient(90deg, #3b82f6 0%, #ffdf5d 100%); */
+    font-weight: 500;
+    color: white;
+    transition: color 0.3s ease;
+    font-size: 1.0rem;
+    padding: 0.01rem;
+    /* opacity: 0.7; */
 }
 
-/* Features Section */
-/* Features Section */
-
-.features .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
+.nav-right .nav-links li a:hover {
+    color: #ffdf5d;
+    /* font-size: 2rem; */
+    /* highlight color on hover */
 }
 
-.feature-card {
-  background-color: rgba(255, 255, 255, 0.6);
-  /* Transparent white background */
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow for visual appeal */
-  padding: 2rem;
-  width: 30%;
-  backdrop-filter: blur(10px);
-  /* Optional: Blurs the background behind the card */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* HERO SECTION */
+.hero-section {
+    text-align: center;
+    padding: 14rem 2rem;
+    /* bigger spacing */
+    margin-top: 0;
+    /* no extra margin since navbar is above */
 }
 
-/* Hover effect for feature cards */
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.feature-card h3 {
-  font-size: 1.5rem;
-  color: #007bff;
-  /* Light blue color */
-  margin-bottom: 1rem;
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
-.feature-card p {
-  font-size: 1rem;
-  color: #000000;
-  /* Dark grey text for readability */
+.hero-subtext {
+    font-size: 1.2rem;
+    color: #dcdcdc;
+    margin-bottom: 2rem;
+    line-height: 1.6;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .features .container {
+.hero-button {
+    background: linear-gradient(90deg, #3b82f6 0%, #ffdf5d 100%);
+    color: black;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.8s ease;
+}
+
+/* Gradient on hover */
+.hero-button:hover {
+    background: linear-gradient(90deg, #ffdf5d 0%, #3b82f6 100%);
+    color: white;
+    /* optional: change text color for contrast */
+}
+
+.hero-image-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ABOUT SECTION */
+.about-section {
+    text-align: center;
+    padding: 14rem 2rem;
+    /* bigger spacing */
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.about-text {
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    color: #dcdcdc;
+    line-height: 1.6;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    /* space for the optional about image below */
+}
+
+.stat-box {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 2rem 1rem;
+}
+
+.stat-box h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-box p {
+    font-size: 1rem;
+    color: #cccccc;
+}
+
+.about-image-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* SERVICES SECTION */
+.services-section {
+    padding: 10rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.services-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    margin-top: 3rem;
+    background: url('/public/images/Group 2.png') top center / contain no-repeat;
+}
+
+/* Alignment Wrappers */
+.service-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.align-left {
+    justify-content: flex-start;
+}
+
+.align-right {
+    justify-content: flex-end;
+}
+
+.service-box {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 3rem 2rem;
+    /* Increased vertical padding for more height */
+    border-radius: 8px;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: left;
+}
+
+
+.service-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-box p {
+    color: #cccccc;
+    line-height: 2rem;
+}
+
+.service-image {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+    margin-top: 1rem;
+}
+
+
+/* CONTACT SECTION */
+.contact-section {
+    padding: 10rem 2rem;
+    padding-bottom: 0rem;
+    /* bigger spacing */
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.contact-text {
+    font-size: 1rem;
+    color: #dcdcdc;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.contact-details {
+    list-style: none;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.contact-details li {
+    margin-bottom: 0.5rem;
+}
+
+/* EXTRA IMAGE SECTION */
+.extra-image-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.extra-image-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.extra-image {
+    width: 30%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* FOOTER */
+.footer-section {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+}
+
+.footer-section p {
+    font-size: 0.9rem;
+}
+
+/* Text above university logos */
+.founding-members-text {
+    font-size: 1.2rem;
+    color: #f7fafc;
+    margin: 2rem 0 1rem;
+    font-weight: 500;
+}
+
+/* University logos styling */
+.university-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+    margin: 2rem 0;
+}
+
+.logo-item {
+    display: flex;
     flex-direction: column;
     align-items: center;
-  }
+    width: 180px;
+    /* Remove background-color and padding */
+}
 
-  .feature-card {
-    width: 80%;
-    margin-bottom: 2rem;
-  }
+.university-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease;
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.logo-item p {
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0;
+    color: #dcdcdc;
+    /* Light gray text */
+}
+
+.university-logo:hover {
+    transform: scale(1.1);
+    filter: brightness(0) invert(1);
+    /* Make slightly brighter on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .university-logos {
+        gap: 1rem;
+    }
+
+    .logo-item {
+        width: 120px;
+    }
+
+    .university-logo {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .university-logos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-item {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Contact methods styling */
+.contact-methods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem auto;
+    max-width: 900px;
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 250px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.contact-method:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    font-size: 1.8rem;
+    margin-right: 1rem;
+    color: #4299e1;
+}
+
+.contact-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.contact-info p {
+    font-size: 0.9rem;
+    color: #dcdcdc;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-methods {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .contact-method {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Contact cards styling */
+.contact-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem auto;
+    max-width: 1200px;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(30, 58, 138, 0.5);
+    border-radius: 12px;
+    padding: 2rem;
+    width: 300px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(30, 58, 138, 0.6);
+}
+
+.contact-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #60a5fa;
+}
+
+.contact-card-text {
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .contact-cards {
+        flex-wrap: wrap;
+    }
+
+    .contact-card {
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .contact-card {
+        width: 100%;
+        max-width: 300px;
+    }
 }

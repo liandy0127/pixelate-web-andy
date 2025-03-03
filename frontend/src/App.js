@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard/Dashboard'; // Import Dashboard page
 import About from './pages/About/About';
 import Services from './pages/Services/Services';
 import Contact from './pages/Contact/Contact';
+import Team from './pages/Team/Team'; // Import the Team component
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import './App.css';
@@ -23,9 +24,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />  {/* Dashboard route */}
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
+        {/* <Route path="/about" element={<About />} /> */}
+        {/* <Route path="/services" element={<Services />} /> */}
         <Route path="/contact" element={<Contact />} />
+        <Route path="/team" element={<Team />} /> {/* Add Team route */}
       </Routes>
       <Footer />
     </Router>

@@ -1,0 +1,174 @@
+/* Full-screen background video */
+.home-container {
+  position: relative;
+  height: 130vh;
+  overflow: hidden;
+  /* Prevents the video from spilling over */
+}
+
+/* Style the video to fill the screen */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensures the video fills the screen without distortion */
+  z-index: -1;
+  /* Sends the video behind the content */
+}
+
+/* Header Section Styling */
+.header {
+  position: relative;
+  text-align: left;
+  z-index: 1;
+  background-color: white;
+  flex-direction: row;
+}
+
+.header .image img {
+  width: 2cm;
+}
+
+.header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: left;
+  opacity: 0.9;
+}
+
+.header h1 {
+  font-size: 1rem;
+  /* margin-bottom: 1rem; */
+  font-weight: bold;
+  color: #000000;
+}
+
+/* Hero Section Styling */
+.hero {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 4rem 0;
+  z-index: 1;
+}
+
+.hero .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #3960a1;
+  border: 2px solid #F8A946;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  /* margin-bottom: 1rem; */
+  font-weight: bold;
+  color: #000000;
+}
+
+.hero p {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  color: black;
+}
+
+.hero .image img {
+  width: 5cm;
+  max-width: 60%;
+  padding-top: 1cm;
+}
+
+.cta-button {
+  background-color: #F8A946;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #8b4300;
+}
+
+
+/* Features Section */
+/* Features Section */
+
+.features .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  /* Ensures equal height */
+  gap: 2rem;
+}
+
+.feature-card {
+  /* background-color: rgba(255, 255, 255, 0.6); */
+  border-radius: 8px;
+  background-color: #3960a1;
+  border: 2px solid #F8A946;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  width: 30%;
+  /* Ensures equal width */
+  min-height: 100px;
+  /* Set a minimum height for uniformity */
+  /* Ensures text is evenly spaced */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for feature cards */
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  color: black;
+  /* Light blue color */
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #000000;
+  /* Dark grey text for readability */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .features .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card {
+    width: 80%;
+    margin-bottom: 2rem;
+  }
+}

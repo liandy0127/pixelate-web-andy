@@ -13,6 +13,7 @@ const Navigation = () => {
           <Link to="/services">Services</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/login">Login</Link>
+          <Link to="/team">Team</Link>
         </div>
       </div>
     </nav>
