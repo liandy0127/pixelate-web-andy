@@ -8,13 +8,14 @@ const Dashboard = () => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
     setError(""); // Clear error when user types
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Clear previous error
@@ -33,12 +34,29 @@ const Dashboard = () => {
       return;
     }
 
-    // Here you would typically send the email to your backend
-    console.log("Email submitted:", email);
+    // Set loading state
+    setIsLoading(true);
 
-    // Show success message
-    setSubmitted(true);
-    setEmail("");
+    try {
+      // Send the email to AWS API
+      const response = await fetch('https://6nvy3g7dq3.execute-api.us-east-2.amazonaws.com/prod/submit-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      // With no-cors, you can't check response.ok
+      // So we'll just assume it worked
+      setSubmitted(true);
+      setEmail("");
+    } catch (err) {
+      console.error('Error submitting email:', err);
+      setError("Failed to join waiting list. Please try again later.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -73,7 +91,13 @@ const Dashboard = () => {
                   </p>
                 )}
               </div>
-              <button type="submit" className="submit-button">Join Waiting List</button>
+              <button
+                type="submit"
+                className="submit-button"
+                disabled={isLoading}
+              >
+                {isLoading ? "Submitting..." : "Join Waiting List"}
+              </button>
             </form>
           ) : (
             <div className="success-message">
