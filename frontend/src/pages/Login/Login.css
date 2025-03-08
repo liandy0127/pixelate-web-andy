@@ -1,0 +1,72 @@
+.login-container {
+  position: relative;
+  height: 100vh;
+  /* Full window height */
+  overflow: hidden;
+  /* Hide any video overflow */
+}
+
+/* Video background fills the entire container */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Keeps the aspect ratio while covering the screen */
+  z-index: -1;
+  /* Places the video behind the content */
+}
+
+/* Login content is on top of the video */
+.login-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  /* White text for visibility against video */
+  max-width: 400px;
+  margin: 0 auto;
+  padding-top: 100px;
+  /* Spacing from the top */
+  text-align: center;
+}
+
+.login-content h2 {
+  margin-bottom: 1rem;
+}
+
+.login-content .error {
+  color: #ff6565;
+  margin-bottom: 1rem;
+}
+
+.login-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-content input {
+  padding: 0.8rem;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+.login-content button {
+  padding: 0.8rem;
+  border-radius: 4px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login-content button:hover {
+  background-color: #0056b3;
+}
+
+.login-content p {
+  margin-top: 1rem;
+}
