@@ -7,7 +7,7 @@ const Team = () => {
       id: 1,
       name: "Edward Liu",
       role: "Founder & CEO",
-      bio: "John has extensive experience in AI and machine learning, with a background in computer vision from Cornell University.",
+      bio: "Edward is a junior studying Economics & Information Science with expertise in business development.",
       image: "/images/Edward_profile.png",
       linkedin: "https://www.linkedin.com/in/edward-liu-289538257/"
     },
@@ -23,7 +23,7 @@ const Team = () => {
       id: 3,
       name: "Andy Li",
       role: "Software Engineer",
-      bio: "Alex specializes in computer vision and deep learning, bringing expertise from his research at UC San Diego.",
+      bio: "Andy studies Computer Science at Cornell and has industry experience in Software and Data Engineering.",
       image: "/images/Andy_profile.png",
       linkedin: "https://www.linkedin.com/in/andyshijiali/"
     },
@@ -31,15 +31,15 @@ const Team = () => {
       id: 4,
       name: "Tony Wang",
       role: "Product Design Engineer",
-      bio: "Sarah oversees product development with her background in UX design and project management from UC Santa Barbara.",
+      bio: "Tony studies Mechanical Engineering at USC. He's passionate about 3D design and AutoCAD software.",
       image: "/images/Tony_profile2.png",
-      linkedin: "https://linkedin.com/in/sarahwilliams"
+      linkedin: "https://linkedin.com/"
     },
     {
       id: 5,
       name: "Harrison Huang",
       role: "Software Engineer",
-      bio: "Hello there! I'm Harrison and I double major in Data Science and Art at UC Berkeley! Making a lot of art stuff in between coding :)",
+      bio: "Hello there! I'm Harrison, and I double major in Data Science and Art at UC Berkeley. I make a lot of art stuff in between coding :)",
       image: "/images/Harrison_profile2.jpg",
       linkedin: "https://www.linkedin.com/in/harrisonlrhuang/"
     },
@@ -47,11 +47,12 @@ const Team = () => {
       id: 6,
       name: "Christina Zhang",
       role: "Business Development",
-      bio: "Sarah oversees product development with her background in UX design and project management from UC Santa Barbara.",
+      bio: "Christina studies Economics with a background in marketing, UX design, and project management from UC Santa Barbara.",
       image: "/images/Christina_profile.png",
       linkedin: "https://www.linkedin.com/in/christina-zhang-1a991a2a7/"
     }
   ];
+
 
   return (
     <div className="team-container">
